@@ -9,7 +9,7 @@ Wirtualna Recepcja - PRACOWNICY - Dodawanie
 <body>
 <p>Dodawanie nowego pracownika</p>
 
-<form method="post" action="index.php" >
+<form method="POST" action="index.php" >
 <input type="hidden" name="submitted" value="true" />
 Login:<br />
 <input type="text" name="login_pracownik" /><br/>
@@ -21,31 +21,26 @@ Telefon:<br />
 <input type="text" name="tel_pracownik" /><br/>
 Dodatkowe Informacje:<br />
 <input type="text" name="opis_pracownik" /><br/>
-<input type="submit" value="dodaj"/>
+<button type="submit" name="submit">Dodaj</button>
 </form>
 
-<?php
 
+<?php
 if(isset($_POST["submit"])){
 $login_pracownik = $_POST['login_pracownik'];
 $imie_pracownik = $_POST['imie_pracownik'];
 $nazwisko_pracownik = $_POST['nazwisko_pracownik'];
 $tel_pracownik = $_POST['tel_pracownik'];
 $opis_pracownik = $_POST['opis_pracownik'];
-
 $con=mysqli_connect("localhost","jdamps","admin123","recepcja1");
 mysqli_query($con,"INSERT INTO pracownicy SET login_pracownik='$login_pracownik', imie_pracownik='$imie_pracownik', nazwisko_pracownik='$nazwisko_pracownik', tel_pracownik='$tel_pracownik', opis_pracownik='$opis_pracownik' ");
-
 }
-
 ?>
 
 <p>PRACOWNICY</p>
 
 <?php
-// łączenie z bazą
 $con=mysqli_connect("localhost","jdamps","admin123","recepcja1");
-// sprawdzenie połączenia
 if (mysqli_connect_errno())
 {
 echo "Błąd połączenia z
