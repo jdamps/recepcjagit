@@ -40,7 +40,46 @@ mysqli_query($con,"INSERT INTO pracownicy SET login_pracownik='$login_pracownik'
 
 ?>
 
+<p>Wyświetlenie tabeli studenci</p>
 
+<?php
+// łączenie z bazą
+$con=mysqli_connect("localhost","jdamps","admin123","recepcja1");
+// sprawdzenie połączenia
+if (mysqli_connect_errno())
+{
+echo "Błąd połączenia z
+MySQL: " . mysqli_connect_error();
+}
+// wyniki
+
+if ($records=mysqli_query($con,"SELECT * FROM studenci"))
+	echo "<table width='600' border='1' cellpadding='1' cellspacing='1'>";
+	echo "<th>ID Studenta</th>";
+	echo "<th>Imię</th>";
+	echo "<th>Nazwisko</th>";
+	echo "<th>Rok Studiów</th>";
+	echo "<th>Adres</th>";
+	
+	while($student=mysqli_fetch_assoc($records)){
+	
+	echo "<tr>";
+	
+	echo "<td>".$student['id']."</td>";
+	echo "<td>".$student['imie']."</td>";
+	echo "<td>".$student['nazwisko']."</td>";
+	echo "<td>".$student['rok_studiow']."</td>";
+	echo "<td>".$student['adres']."</td>";
+	
+	echo "</tr>";
+	
+}//end while
+
+echo "</table>";
+
+mysqli_close($con);
+
+?>
 
 
 
