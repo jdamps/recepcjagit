@@ -50,24 +50,28 @@ MySQL: " . mysqli_connect_error();
 
 if ($records=mysqli_query($con,"SELECT * FROM pracownicy"))
 	echo "<table width='600' border='1' cellpadding='1' cellspacing='1'>";
-	echo "<th>ID</th>";
+	//echo "<th>ID</th>";
 	echo "<th>Login</th>";
 	echo "<th>Imię</th>";
 	echo "<th>Nazwisko</th>";
 	echo "<th>Telefon</th>";
 	echo "<th>Opis</th>";
+	echo "<th>Edytuj</th>";
+	echo "<th>Usuń</th>";
 	
 	while($pk=mysqli_fetch_assoc($records)){
 	
 	echo "<tr>";
 	
-	echo "<td>".$pk['id_pracownik']."</td>";
+	//echo "<td>".$pk['id_pracownik']."</td>";
 	echo "<td>".$pk['login_pracownik']."</td>";
 	echo "<td>".$pk['imie_pracownik']."</td>";
 	echo "<td>".$pk['nazwisko_pracownik']."</td>";
 	echo "<td>".$pk['tel_pracownik']."</td>";
 	echo "<td>".$pk['opis_pracownik']."</td>";
-	
+	echo "<td><button class='edit' >Edytuj</button></td>";
+	echo "<td><button class='delete' >Usuń</button></td>";
+
 	echo "</tr>";
 	
 }
