@@ -50,7 +50,7 @@ MySQL: " . mysqli_connect_error();
 
 if ($records=mysqli_query($con,"SELECT * FROM pracownicy"))
 	echo "<table width='600' border='1' cellpadding='1' cellspacing='1'>";
-	//echo "<th>ID</th>";
+	echo "<th>ID</th>";
 	echo "<th>Login</th>";
 	echo "<th>Imię</th>";
 	echo "<th>Nazwisko</th>";
@@ -63,17 +63,25 @@ if ($records=mysqli_query($con,"SELECT * FROM pracownicy"))
 	
 	echo "<tr>";
 	
-	//echo "<td>".$pk['id_pracownik']."</td>";
+	echo "<td>".$pk['id_pracownik']."</td>";
 	echo "<td>".$pk['login_pracownik']."</td>";
 	echo "<td>".$pk['imie_pracownik']."</td>";
 	echo "<td>".$pk['nazwisko_pracownik']."</td>";
 	echo "<td>".$pk['tel_pracownik']."</td>";
 	echo "<td>".$pk['opis_pracownik']."</td>";
 	echo "<td><button class='edit' >Edytuj</button></td>";
-	echo "<td><button class='delete' >Usuń</button></td>";
+	echo "<td><a href=delete.php?id=".$pk['id_pracownik'].">Usuń</a></td>";
 
 	echo "</tr>";
 	
+	
+	
+}
+
+if (isset($_GET['del'])) {
+$del = $_GET['del'];
+//SQL query for deletion.
+$query1 = mysql_query("delete from employee where employee_id=$del", $connection);
 }
 
 echo "</table>";
