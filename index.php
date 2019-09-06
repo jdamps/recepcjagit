@@ -78,13 +78,7 @@ if ($records=mysqli_query($con,"SELECT * FROM pracownicy"))
 	
 }
 
-if (isset($_GET['del'])) {
-$del = $_GET['del'];
-//SQL query for deletion.
-$query1 = mysql_query("delete from employee where employee_id=$del", $connection);
-}
 
-echo "</table>";
 
 mysqli_close($con);
 
