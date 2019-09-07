@@ -69,7 +69,7 @@ if ($records=mysqli_query($con,"SELECT * FROM pracownicy"))
 	echo "<td>".$pk['nazwisko_pracownik']."</td>";
 	echo "<td>".$pk['tel_pracownik']."</td>";
 	echo "<td>".$pk['opis_pracownik']."</td>";
-	echo "<td><button class='edit' >Edytuj</button></td>";
+	echo "<td><a href=edit.php?id=".$pk['id_pracownik'].">Edytuj</a></td>";
 	echo "<td><a href=delete.php?id=".$pk['id_pracownik'].">Usuń</a></td>";
 
 	echo "</tr>";
