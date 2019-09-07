@@ -32,7 +32,7 @@ $records = mysqli_query($con,$sql);
 		echo "<td><input type=text name=nazwisko_pracownik value='".$row['nazwisko_pracownik']."'></td>";
 		echo "<td><input type=text name=tel_pracownik value='".$row['tel_pracownik']."'></td>";
 		echo "<td><input type=text name=opis_pracownik value='".$row['opis_pracownik']."'></td>";
-		echo "<td><input type=hidden name=id value=".$row['id_pracownik']."'></td>";
+		echo "<input type=hidden name=id_pracownik value='".$row['id_pracownik']."'>";
 		echo "<td><button type=submit name=submit >Zmień</button></th>";
 		echo "</form></tr>";
 		
